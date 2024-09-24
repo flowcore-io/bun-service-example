@@ -1,0 +1,21 @@
+tenant: tenant-name
+scenario:
+  name: bun-service-example-scenario
+  description: "Bun Service Example Scenario"
+  transformers:
+    bun-service-example-example:
+      description: "Example transformer"
+      dataCore: example-data-core
+      flowType: example.0
+      shell: flowcoreio/adapter-nodejs-transformer-shell:2.4.1
+      events:
+        - example.created.0
+      parameters:
+        - name: PROXY_ENDPOINT
+          type: manual
+          value: http://bun-service-example.flowcore-core:3000/transformers/example.0
+        - name: PROXY_HEADER_SECRET
+          type: secret
+          value: transformer-secret-bun-service-example
+      blueprint:
+        artifactUrl: "https://flowcore-public-runtimes.s3.eu-west-1.amazonaws.com/transformer-proxy-1.4.1.zip"

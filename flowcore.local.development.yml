@@ -1,0 +1,10 @@
+development:
+  proxyEndpoints:
+    example:
+      description: "Example transformer"
+      dataCore: example-data-core
+      flowType: example.0
+      events:
+        - example.created.0
+      endpoints:
+        - example.0
