@@ -8,6 +8,8 @@
   "scripts": {
     "services:up": "docker compose up -d",
     "services:down": "docker compose down",
+    "services:test:up": "docker compose -f test/docker-compose.yml up --wait",
+    "services:test:down": "docker compose -f test/docker-compose.yml down",
     "db:push": "env-cmd -x drizzle-kit push --dialect=postgresql --schema=src/database/schemas.ts --url=\\$POSTGRES_CONNECTION_STRING",
     "flowcore:backfill": "env-cmd -x flowcore scenario local -f flowcore.yml -f flowcore.local.yml -f flowcore.local.development.yml -e http://127.0.0.1:3000/transformers -H \"X-Secret: \\$TRANSFORMER_SECRET\"",
     "flowcore:stream": "env-cmd -x flowcore scenario local -s now -f flowcore.yml -f flowcore.local.yml -f flowcore.local.development.yml -e http://127.0.0.1:3000/transformers -H \"X-Secret: \\$TRANSFORMER_SECRET\"",
